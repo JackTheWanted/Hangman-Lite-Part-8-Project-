@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-List<string> wordList = new List<string>() { "COMPUTER", "AMBUSHES", "MOUNTAIN", "SURPRISE", "OBTAINED", "FLAVOURS", "TERMINAL", "UNIVERSE", "WORKSHOP", "REPUBLIC" };
-Random generator = new Random();
+
+
 namespace Hangman_Lite__Part_8_Project_
 {
 
     public partial class Form1 : Form
     {
-        
-        string word = "_ _ _ _ _ _ _ _";
-        string secretWord = wordList[generator.Next(10)];
+
+
+
 
         public Form1()
         {
@@ -25,13 +25,30 @@ namespace Hangman_Lite__Part_8_Project_
             pictureBox2.Location = new Point(131, 58);
             pictureBox2.BackColor = Color.Transparent;
             
-            
         }
-        
+
+        Random generator = new Random();
+
+
+        public void ResetGame()
+        {
+            //Pick a word, reset picturebox and everything else here
+            public static List<string> wordList = new List<string>() { "COMPUTER", "AMBUSHES", "MOUNTAIN", "SURPRISE", "OBTAINED", "FLAVOURS", "TERMINAL", "UNIVERSE", "WORKSHOP", "REPUBLIC" };
+            string secretWord = wordList[generator.Next(10)];
+            string word = "_ _ _ _ _ _ _ _";
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;            
+            lblWord.Text = word;
+            ResetGane();
+        }
 
         private void btnA_Click(object sender, EventArgs e)
         {
-                     
+            if (secretWord)
+                 
         }
 
         private void btnB_Click(object sender, EventArgs e)
@@ -148,5 +165,7 @@ namespace Hangman_Lite__Part_8_Project_
         {
 
         }
+
+        
     }
 }

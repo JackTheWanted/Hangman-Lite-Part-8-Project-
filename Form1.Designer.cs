@@ -59,8 +59,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblWord = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -371,11 +374,30 @@
             this.lblWord.TabIndex = 33;
             this.lblWord.Text = "_ _ _ _ _ _ _ _";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnStart);
+            this.panel1.Location = new System.Drawing.Point(-2, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(804, 454);
+            this.panel1.TabIndex = 34;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(337, 200);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 442);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblWord);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -411,6 +433,7 @@
             this.Text = "Hangman";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,6 +472,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblWord;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnStart;
     }
 }
 
