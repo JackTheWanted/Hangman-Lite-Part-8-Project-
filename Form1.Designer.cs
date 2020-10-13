@@ -59,11 +59,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblWord = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnStart = new System.Windows.Forms.Button();
+            this.pnlMan1 = new System.Windows.Forms.Panel();
+            this.pnlMan2 = new System.Windows.Forms.Panel();
+            this.pnlMan3 = new System.Windows.Forms.Panel();
+            this.guessCounter = new System.Windows.Forms.Label();
+            this.btnReplay = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -144,6 +146,7 @@
             this.btnF.TabIndex = 8;
             this.btnF.Text = "F";
             this.btnF.UseVisualStyleBackColor = true;
+            this.btnF.Click += new System.EventHandler(this.btnF_Click);
             // 
             // btnG
             // 
@@ -273,6 +276,7 @@
             this.btnU.TabIndex = 23;
             this.btnU.Text = "U";
             this.btnU.UseVisualStyleBackColor = true;
+            this.btnU.Click += new System.EventHandler(this.btnU_Click);
             // 
             // btnI
             // 
@@ -346,6 +350,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Hangman_Lite__Part_8_Project_.Properties.Resources.stickperson;
             this.pictureBox2.Location = new System.Drawing.Point(131, 141);
             this.pictureBox2.Name = "pictureBox2";
@@ -367,37 +372,65 @@
             // lblWord
             // 
             this.lblWord.AutoSize = true;
-            this.lblWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 45.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWord.Location = new System.Drawing.Point(371, 316);
+            this.lblWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWord.Location = new System.Drawing.Point(409, 337);
             this.lblWord.Name = "lblWord";
-            this.lblWord.Size = new System.Drawing.Size(414, 70);
+            this.lblWord.Size = new System.Drawing.Size(323, 55);
             this.lblWord.TabIndex = 33;
             this.lblWord.Text = "_ _ _ _ _ _ _ _";
             // 
-            // panel1
+            // pnlMan1
             // 
-            this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Location = new System.Drawing.Point(-2, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 454);
-            this.panel1.TabIndex = 34;
+            this.pnlMan1.Location = new System.Drawing.Point(153, 141);
+            this.pnlMan1.Name = "pnlMan1";
+            this.pnlMan1.Size = new System.Drawing.Size(200, 78);
+            this.pnlMan1.TabIndex = 35;
             // 
-            // btnStart
+            // pnlMan2
             // 
-            this.btnStart.Location = new System.Drawing.Point(337, 200);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.pnlMan2.Location = new System.Drawing.Point(153, 214);
+            this.pnlMan2.Name = "pnlMan2";
+            this.pnlMan2.Size = new System.Drawing.Size(203, 84);
+            this.pnlMan2.TabIndex = 36;
+            // 
+            // pnlMan3
+            // 
+            this.pnlMan3.Location = new System.Drawing.Point(150, 291);
+            this.pnlMan3.Name = "pnlMan3";
+            this.pnlMan3.Size = new System.Drawing.Size(203, 73);
+            this.pnlMan3.TabIndex = 37;
+            // 
+            // guessCounter
+            // 
+            this.guessCounter.AutoSize = true;
+            this.guessCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guessCounter.Location = new System.Drawing.Point(491, 101);
+            this.guessCounter.Name = "guessCounter";
+            this.guessCounter.Size = new System.Drawing.Size(122, 20);
+            this.guessCounter.TabIndex = 37;
+            this.guessCounter.Text = "Guesses Left: 3";
+            // 
+            // btnReplay
+            // 
+            this.btnReplay.Location = new System.Drawing.Point(511, 124);
+            this.btnReplay.Name = "btnReplay";
+            this.btnReplay.Size = new System.Drawing.Size(75, 23);
+            this.btnReplay.TabIndex = 38;
+            this.btnReplay.Text = "Try Again";
+            this.btnReplay.UseVisualStyleBackColor = true;
+            this.btnReplay.Visible = false;
+            this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 442);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlMan3);
+            this.Controls.Add(this.btnReplay);
+            this.Controls.Add(this.guessCounter);
+            this.Controls.Add(this.pnlMan2);
+            this.Controls.Add(this.pnlMan1);
             this.Controls.Add(this.lblWord);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -431,9 +464,9 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Hangman";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,8 +505,11 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblWord;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Panel pnlMan1;
+        private System.Windows.Forms.Panel pnlMan2;
+        private System.Windows.Forms.Panel pnlMan3;
+        private System.Windows.Forms.Label guessCounter;
+        private System.Windows.Forms.Button btnReplay;
     }
 }
 
